@@ -921,13 +921,13 @@ const fonts = document.querySelector("#fonts")
 
 // Add Fonts
 for(let i = 0; i < allFonts.length; i++ ) {
-    let option = document.createElement("option")
-    option.value = allFonts[i]
-    option.innerText = allFonts[i]
-    fonts.appendChild(option)
-}
+    let li = document.createElement("li")
+    li.setAttribute('data-value', allFonts[i])
+    li.innerText = allFonts[i]
+    
+    li.addEventListener("click", () => {
+        content.style.fontFamily = allFonts[i]
+    })
 
-// Change font according to the dropdown selected font
-fonts.addEventListener("change", () => {
-    content.style.fontFamily = fonts.value
-})
+    fonts.appendChild(li)
+}
