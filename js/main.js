@@ -924,6 +924,7 @@ for(let i = 0; i < allFonts.length; i++ ) {
     let li = document.createElement("li")
     li.setAttribute('data-value', allFonts[i])
     li.innerText = allFonts[i]
+    li.style.fontFamily = allFonts[i]
     
     li.addEventListener("click", () => {
         content.style.fontFamily = allFonts[i]
