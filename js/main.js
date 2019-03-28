@@ -919,6 +919,8 @@ const allFonts = [
 const content = document.querySelector("#content")
 const fonts = document.querySelector("#fonts")
 
+const controls_selectedFont = document.querySelector(".selected-font")
+
 // Add Fonts
 for(let i = 0; i < allFonts.length; i++ ) {
     let li = document.createElement("li")
@@ -928,7 +930,14 @@ for(let i = 0; i < allFonts.length; i++ ) {
     
     li.addEventListener("click", () => {
         content.style.fontFamily = allFonts[i]
+        selectedFont(allFonts[i])
     })
 
     fonts.appendChild(li)
+}
+
+
+// Update Selected Font
+function selectedFont(fontName) {
+    controls_selectedFont.innerHTML = `Current Font: <strong>${fontName}</strong>`
 }

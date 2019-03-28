@@ -2,39 +2,39 @@
     margin: 0
     padding: 0
 
-body
-    background: #363636
-
-.controls
+#fonts
     position: fixed
     width: 20%
     height: 100vh
     background: #e8e8e8
+    font-size: 1.2rem
+    padding-left: 0
+    overflow-y: scroll
+    list-style: none
 
-    #fonts
-        width: 100%
-        height: 100%
-        font-size: 1.5rem
-        padding-left: 0
-        overflow-y: scroll
-        list-style: none
+    li
+        padding: 5px
+        cursor: pointer
 
-        li
-            padding: 5px
-            cursor: pointer
-
-
-#content
+// background: #363636
+main
     position: absolute
     width: 78%
     height: 100vh
     left: 20%
-    padding: 0 1%
-    font-size: 4rem
-    text-align: center
-    color: #fbfbfb
-    background: #363636
-    resize: none
-    border: 0
-    &:focus
-        outline: 0
+
+    #content
+        width: 100%
+        height: 95vh
+        padding: 0 1%
+        font-size: 4rem
+        text-align: center
+        color: #fbfbfb
+        background: #363636
+        resize: none
+        border: 0
+        &:focus
+            outline: 0
+    
+    .controls
+        display: flex
