@@ -941,3 +941,10 @@ for(let i = 0; i < allFonts.length; i++ ) {
 function selectedFont(fontName) {
     controls_selectedFont.innerHTML = `Current Font: <strong>${fontName}</strong>`
 }
+
+
+// Init
+function init() {
+    controls_selectedFont.innerHTML = `Current Font: <strong>Please select a font!</strong>`
+}
+init()
