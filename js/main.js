@@ -939,12 +939,12 @@ for(let i = 0; i < allFonts.length; i++ ) {
 
 // Update Selected Font
 function selectedFont(fontName) {
-    controls_selectedFont.innerHTML = `Current Font: <strong>${fontName}</strong>`
+    controls_selectedFont.innerText = fontName
 }
 
 
 // Init
 function init() {
-    controls_selectedFont.innerHTML = `Current Font: <strong>Please select a font!</strong>`
+    controls_selectedFont.innerText = "Please select a font!"
 }
 init()
