@@ -920,6 +920,7 @@ const content = document.querySelector("#content")
 const fonts = document.querySelector("#fonts")
 
 const controls_selectedFont = document.querySelector(".selected-font")
+const controls_currentSize = document.querySelector("#current-size")
 
 // Add Fonts
 for(let i = 0; i < allFonts.length; i++ ) {
@@ -941,6 +942,13 @@ for(let i = 0; i < allFonts.length; i++ ) {
 function selectedFont(fontName) {
     controls_selectedFont.innerText = fontName
 }
+
+
+// Current Size
+controls_currentSize.addEventListener("change", () => {
+    content.style.fontSize = controls_currentSize.value + 'px'
+    console.log(controls_currentSize.value)
+})
 
 
 // Init
