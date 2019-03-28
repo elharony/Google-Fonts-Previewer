@@ -3,10 +3,21 @@
   padding: 0;
 }
 
-#fonts {
+aside {
   position: fixed;
   width: 20%;
   height: 100vh;
+}
+
+aside h1 {
+  font-size: 30px;
+  font-family: 'Quicksand', sans-serif;
+  text-align: center;
+}
+
+aside #fonts {
+  width: 100%;
+  height: 100%;
   background: #e8e8e8;
   font-size: 1.2rem;
   padding-left: 0;
@@ -14,7 +25,7 @@
   list-style: none;
 }
 
-#fonts li {
+aside #fonts li {
   padding: 5px;
   cursor: pointer;
 }
