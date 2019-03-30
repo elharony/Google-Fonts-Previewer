@@ -954,6 +954,6 @@ size_controller.addEventListener("input", () => {
 
 // Init
 function init() {
-    controls_selectedFont.innerText = "Please select a font!"
+    controls_selectedFont.innerText = "Please select a font..."
 }
 init()
