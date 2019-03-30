@@ -920,7 +920,9 @@ const content = document.querySelector("#content")
 const fonts = document.querySelector("#fonts")
 
 const controls_selectedFont = document.querySelector(".selected-font")
-const controls_currentSize = document.querySelector("#current-size")
+const size_controller = document.querySelector("#size_controller")
+const placeholder_currentSize = document.querySelector("#current-size")
+
 
 // Add Fonts
 for(let i = 0; i < allFonts.length; i++ ) {
@@ -945,11 +947,10 @@ function selectedFont(fontName) {
 
 
 // Current Size
-controls_currentSize.addEventListener("change", () => {
-    content.style.fontSize = controls_currentSize.value + 'px'
-    console.log(controls_currentSize.value)
+size_controller.addEventListener("input", () => {
+    content.style.fontSize = size_controller.value + 'px'
+    placeholder_currentSize.innerText = size_controller.value + 'px'
 })
-
 
 // Init
 function init() {

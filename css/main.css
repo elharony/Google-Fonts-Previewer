@@ -3,6 +3,80 @@
   padding: 0;
 }
 
+/****************
+ Cross-Styling for input[type="range"]
+ Source: https://codepen.io/thebabydino/pen/qVQLzm
+ By: Ana Tudor
+ ***/
+[type='range'], [type='range']::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  margin: 0;
+  padding: 0;
+  width: 5.5em;
+  height: 1em;
+  background: transparent;
+  font: 1em/1 arial, sans-serif;
+}
+
+[type='range']::-webkit-slider-runnable-track {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border: none;
+  width: 5.5em;
+  height: 0.25em;
+  background: #ccc;
+}
+
+[type='range']::-moz-range-track {
+  box-sizing: border-box;
+  border: none;
+  width: 5.5em;
+  height: 0.25em;
+  background: #ccc;
+}
+
+[type='range']::-ms-track {
+  box-sizing: border-box;
+  border: none;
+  width: 5.5em;
+  height: 0.25em;
+  background: #ccc;
+}
+
+[type='range']::-webkit-slider-thumb {
+  margin-top: -0.375em;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border: none;
+  width: 1em;
+  width-height: 1em;
+  border-radius: 50%;
+  background: #363636;
+}
+
+[type='range']::-moz-range-thumb {
+  box-sizing: border-box;
+  border: none;
+  width: 1em;
+  width-height: 1em;
+  border-radius: 50%;
+  background: #363636;
+}
+
+[type='range']::-ms-thumb {
+  margin-top: 0;
+  margin-top-box-sizing: border-box;
+  margin-top-border: none;
+  margin-top-width: 1em;
+  margin-top-width-height: 1em;
+  margin-top-border-radius: 50%;
+  margin-top-background: #363636;
+}
+
+[type='range']::-ms-tooltip {
+  display: none;
+}
+
 aside {
   position: fixed;
   width: 20%;
@@ -70,6 +144,16 @@ main .controls {
 main .controls .selected-font {
   width: 25%;
   padding-left: 10px;
+}
+
+main .controls .font-styles .size {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+main .controls .font-styles .size input[type="range"] {
+  margin: 0 5px;
 }
 
 @media all and (max-width: 600px) {
