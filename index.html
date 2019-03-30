@@ -114,18 +114,17 @@
         </select> -->
 
     <main>
+        <header>
+            <div class="selected-font"></div>
+            <div class="size">
+                <span id="current-size">50px</span>
+                <input type="range" id="size_controller" min="10" max="100" value="50">
+                <i class="fas fa-font fa-lg"></i>
+            </div>
+        </header>
         <textarea id="content">Copy/Paste your content, and decide which font is the best for you!</textarea>   
 
-        <div class="controls">
-            <div class="selected-font"></div>
-            <div class="font-styles">
-                <div class="size">
-                    <span id="current-size">50px</span>
-                    <input type="range" id="size_controller" min="10" max="100" value="50">
-                    <i class="fas fa-font fa-lg"></i>
-                </div>
-            </div>
-        </div>
+        <footer>Available on <a href="https://github.com/elharony/Google-Fonts-Previewer">GitHub</a></footer>
     </main>
     
     <script src="js/main.js"></script>
