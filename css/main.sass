@@ -61,6 +61,10 @@ $thumb-d: 1em
         display: none 
 
 
+
+
+
+/** Fonts List **/
 aside
     position: fixed
     width: 20%
@@ -84,8 +88,18 @@ aside
             padding: 5px
             cursor: pointer
 
-// background: #363636
 
+/** Wrapper **/
+main
+    position: absolute
+    width: 80%
+    height: 100vh
+    left: 20%
+    background: #212121
+
+
+
+/** Controls / Features **/
 header
     display: flex
     width: 100%
@@ -110,27 +124,24 @@ header
             margin: 0 5px
 
 
-main
-    position: absolute
-    width: 80%
-    height: 100vh
-    left: 20%
-    background: #212121
 
-    #content
-        width: 100%
-        height: 91vh
-        font-size: 50px
-        text-align: center
-        color: #fbfbfb
-        background: #363636
-        resize: none
-        overflow-x: hidden
-        border: 0
-        &:focus
-            outline: 0
+/** Content Area **/
+#content
+    width: 100%
+    height: 91vh
+    font-size: 50px
+    text-align: center
+    color: #fbfbfb
+    background: #363636
+    resize: none
+    overflow-x: hidden
+    border: 0
+
+    &:focus
+        outline: 0
 
 
+/** Copyrights & Contributions **/
 footer
     height: 3vh
     line-height: 3vh
@@ -141,6 +152,9 @@ footer
     a
         color: #c5c5c5
 
+
+
+/** Responsive Stuff **/
 @media all and (max-width: 600px)
     aside
         width: 30%
