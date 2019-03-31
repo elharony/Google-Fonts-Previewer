@@ -20,7 +20,7 @@ let fontListFragment = document.createDocumentFragment();
 // or develop a simple endpoints that hides our API key, fetch all css, (maybe combine all of them into one file)
 
 //  read more https://developers.google.com/fonts/docs/developer_api
-fetch('/js/fonts.json')
+fetch('./js/fonts.json')
   .then((r) => r.json())
   .then((fontsObject) => {
     // create visual list for fonts
