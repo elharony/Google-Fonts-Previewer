@@ -77,7 +77,7 @@ fontListElement.addEventListener('click', (e) => {
 
 // tab navigation
 fontListElement.addEventListener('keyup', (e) => {
-  if (e.keyCode == 9) document.activeElement.click();
+  if (e.keyCode == 9 && isFontListItem(e.target)) document.activeElement.click();
 });
 
 // utils
