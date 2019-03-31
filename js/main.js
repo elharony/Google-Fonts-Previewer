@@ -24,11 +24,12 @@ fetch('./js/fonts.json')
   .then((r) => r.json())
   .then((fontsObject) => {
     // create visual list for fonts
-    for (font of fontsObject.items) {
+    for ([index, font] of fontsObject.items.entries()) {
       let fontFamily = font.family;
       let li = document.createElement('li');
       li.classList.add('font');
       li.setAttribute('data-value', fontFamily);
+      li.setAttribute('tabindex', index+100);
       li.innerText = fontFamily;
       li.style.fontFamily = fontFamily;
 
@@ -74,7 +75,12 @@ fontListElement.addEventListener('click', (e) => {
   }
 });
 
-// utils
+// tab navigation
+fontListElement.addEventListener('keyup', (e) => {
+if (e.keyCode == 9) document.activeElement.click();
+}
+
+)// utils
 function isFontListItem(clickedElm) {
   return clickedElm.classList.contains('font');
 }
