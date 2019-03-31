@@ -24,12 +24,12 @@ fetch('./js/fonts.json')
   .then((r) => r.json())
   .then((fontsObject) => {
     // create visual list for fonts
-    for ([index, font] of fontsObject.items.entries()) {
+    for (font of fontsObject.items) {
       let fontFamily = font.family;
       let li = document.createElement('li');
       li.classList.add('font');
       li.setAttribute('data-value', fontFamily);
-      li.setAttribute('tabindex', index+100);
+      li.setAttribute('tabindex', 0);
       li.innerText = fontFamily;
       li.style.fontFamily = fontFamily;
 
