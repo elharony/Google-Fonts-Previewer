@@ -77,10 +77,10 @@ fontListElement.addEventListener('click', (e) => {
 
 // tab navigation
 fontListElement.addEventListener('keyup', (e) => {
-if (e.keyCode == 9) document.activeElement.click();
-}
+  if (e.keyCode == 9) document.activeElement.click();
+});
 
-)// utils
+// utils
 function isFontListItem(clickedElm) {
   return clickedElm.classList.contains('font');
 }
