@@ -14,7 +14,6 @@ let fontListFragment = document.createDocumentFragment();
 fetch('https://www.googleapis.com/webfonts/v1/webfonts?sort=popularity&key=AIzaSyCVmxrGZ9C6A_dADKlJIc1I88fJoHsYjnQ')
   .then((r) => r.json())
   .then((fontsObject) => {
-    console.log(fontsObject)
     // create visual list for fonts
     for (font of fontsObject.items) {
       let fontFamily = font.family;
