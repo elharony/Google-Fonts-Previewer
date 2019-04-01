@@ -89,6 +89,12 @@ aside h1 {
   font-family: 'Quicksand', sans-serif;
   text-align: center;
 }
+aside #font-search {
+  width: 80%;
+  margin: 10px;
+  font-size: 15px;
+  padding: 5px 8px 5px 10px;
+}
 
 aside #fonts {
   width: 100%;
