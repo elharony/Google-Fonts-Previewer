@@ -7,22 +7,14 @@ const placeholder_currentSize = document.querySelector('#current-size');
 let fontListFragment = document.createDocumentFragment();
 
 
-// load all google fonts dynamically
-// for now, it is static file, in the future
-// we should make a call to google fonts api
-// to retrieve recent updated list of fonts
-// to avoid changing our codebase each time
-// google adds or removes a font
 
-// the call will be something like: 
-// https://content.googleapis.com/webfonts/v1/webfonts?sort=alpha&key=AIzaSyAa8yy0GdcGPHdtD083HiGGx_S0vMPScDM
-
-// or develop a simple endpoints that hides our API key, fetch all css, (maybe combine all of them into one file)
-
-//  read more https://developers.google.com/fonts/docs/developer_api
-fetch('./js/fonts.json')
+/* -------------------------------------
+| Retreive fonts from Google Fonts API | 
+------------------------------------- */
+fetch('https://www.googleapis.com/webfonts/v1/webfonts?sort=popularity&key=AIzaSyCVmxrGZ9C6A_dADKlJIc1I88fJoHsYjnQ')
   .then((r) => r.json())
   .then((fontsObject) => {
+    console.log(fontsObject)
     // create visual list for fonts
     for (font of fontsObject.items) {
       let fontFamily = font.family;
