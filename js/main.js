@@ -29,6 +29,7 @@ fetch('./js/fonts.json')
       let li = document.createElement('li');
       li.classList.add('font');
       li.setAttribute('data-value', fontFamily);
+      li.setAttribute('tabindex', 0);
       li.innerText = fontFamily;
       li.style.fontFamily = fontFamily;
 
@@ -72,6 +73,11 @@ fontListElement.addEventListener('click', (e) => {
 
     e.stopPropagation();
   }
+});
+
+// tab navigation
+fontListElement.addEventListener('keyup', (e) => {
+  if (e.keyCode == 9 && isFontListItem(e.target)) document.activeElement.click();
 });
 
 // utils
