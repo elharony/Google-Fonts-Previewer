@@ -96,6 +96,22 @@ function chunk(ar, size) {
   }, []);
 }
 
+// Search through fonts
+function searchFonts() {
+  var input, filter, font, i, txtValue;
+  input = document.querySelector("#font-search");
+  filter = input.value.toUpperCase();
+  font = document.getElementsByTagName("li");
+  for (i = 0; i < font.length; i++) {
+      txtValue = font[i].innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+          font[i].style.display = "";
+      } else {
+          font[i].style.display = "none";
+      }
+  }
+}
+
 // Update Selected Font
 function selectedFont(fontName) {
   controls_selectedFont.innerText = fontName;
