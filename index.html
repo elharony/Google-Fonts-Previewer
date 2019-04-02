@@ -34,13 +34,15 @@
     <!-- Fonts List -->
     <aside>
         <h1>Google Fonts Previewer</h1>
-        <input 
-        type="text" 
-        id="font-search" 
-        aria-label="Search fonts" 
-        placeholder="search fonts.."
-        onkeyup="searchFonts()"        
-        >
+        <div class="finder">
+            <input 
+               type="text" 
+                id="font-search" 
+                aria-label="Search fonts"
+                placeholder="Search...."
+                onkeyup="searchFonts()">
+        </div>
+        
         <ul id="fonts"></ul>
     </aside>
 
