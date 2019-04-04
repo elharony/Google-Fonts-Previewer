@@ -11,7 +11,11 @@ let fontListFragment = document.createDocumentFragment();
 /* -------------------------------------
 | Retreive fonts from Google Fonts API | 
 ------------------------------------- */
-fetch('https://www.googleapis.com/webfonts/v1/webfonts?sort=popularity&key=AIzaSyCVmxrGZ9C6A_dADKlJIc1I88fJoHsYjnQ')
+// use this for development
+// fetch('https://www.googleapis.com/webfonts/v1/webfonts?sort=popularity&key=AIzaSyCVmxrGZ9C6A_dADKlJIc1I88fJoHsYjnQ')
+
+//and this for production
+fetch('https://nilegfx.firebaseapp.com/api/fonts')
   .then((r) => r.json())
   .then((fontsObject) => {
     // create visual list for fonts
