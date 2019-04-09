@@ -1,10 +1,11 @@
 const content = document.querySelector('#content');
 const fontListElement = document.querySelector('#fonts');
-
+const copyBtn = document.querySelector('#btn');
 const controls_selectedFont = document.querySelector('.selected-font');
 const size_controller = document.querySelector('#size_controller');
 const placeholder_currentSize = document.querySelector('#current-size');
 let fontListFragment = document.createDocumentFragment();
+
 
 
 
@@ -61,7 +62,8 @@ fontListElement.addEventListener('click', (e) => {
     let fontFamily = li.dataset.value;
     content.style.fontFamily = fontFamily;
     selectedFont(fontFamily);
-
+    copyButton(fontFamily);
+    //console.log(fontFamily);   Selected font family 
     e.stopPropagation();
   }
 });
@@ -117,6 +119,52 @@ function selectedFont(fontName) {
   controls_selectedFont.innerText = fontName;
 }
 
+//Copy
+ function copyButton(fontName)
+ { 
+   
+   //remove space form string  and add "+"
+  
+     
+   
+
+   copyBtn.addEventListener('click',function(){
+   
+  let  fontName1= checkSpace(fontName);
+   
+    console.log(fontName1);
+
+    // Create new element
+    var el = document.createElement('textarea');
+    // Set value (string to be copied)
+    el.value = `<link href="https://fonts.googleapis.com/css?family=${fontName1}" rel="stylesheet">`
+    console.log(el.value);
+    // Set non-editable to avoid focus and move outside of view
+    el.setAttribute('readonly', '');
+    el.style = {position: 'absolute', left: '-9999px'};
+    document.body.appendChild(el);
+    // Select text inside element
+    el.select();
+    // Copy text to clipboard
+    document.execCommand('copy');
+    // Remove temporary element
+    document.body.removeChild(el);
+   window.location.reload();
+ 
+   });
+
+   
+   
+ }
+
+ //
+ function checkSpace(font)
+ {
+   return font.replace(/\s/g, '+');
+  // console.log(withSpace);
+  
+ }
+
 // Current Size
 size_controller.addEventListener('input', () => {
   content.style.fontSize = size_controller.value + 'px';
@@ -128,3 +176,6 @@ function init() {
   controls_selectedFont.innerText = 'Please select a font...';
 }
 init();
+
+
+
