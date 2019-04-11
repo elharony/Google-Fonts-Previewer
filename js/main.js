@@ -1,6 +1,6 @@
 const content = document.querySelector('#content');
 const fontListElement = document.querySelector('#fonts');
-const copyBtn = document.querySelector('#btn');
+const copyBtn = document.querySelector('#copy-font');
 const controls_selectedFont = document.querySelector('.selected-font');
 const size_controller = document.querySelector('#size_controller');
 const placeholder_currentSize = document.querySelector('#current-size');
