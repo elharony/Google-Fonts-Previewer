@@ -63,7 +63,6 @@ fontListElement.addEventListener('click', (e) => {
     content.style.fontFamily = fontFamily;
     selectedFont(fontFamily);
     copyButton(fontFamily);
-    //console.log(fontFamily);   Selected font family 
     e.stopPropagation();
   }
 });
@@ -119,26 +118,20 @@ function selectedFont(fontName) {
   controls_selectedFont.innerText = fontName;
 }
 
-//Copy
- function copyButton(fontName)
- { 
-   
-   //remove space form string  and add "+"
-  
-     
-   
+// Remove space form string and add "+"
+function checkSpace(font) {
+  return font.replace(/\s/g, '+');
+}
 
-   copyBtn.addEventListener('click',function(){
+// Copy Font
+function copyButton(fontName) { 
+  copyBtn.addEventListener('click',function() {
    
-  let  fontName1= checkSpace(fontName);
-   
-    console.log(fontName1);
-
+  let selectedFont = checkSpace(fontName);
     // Create new element
     var el = document.createElement('textarea');
     // Set value (string to be copied)
-    el.value = `<link href="https://fonts.googleapis.com/css?family=${fontName1}" rel="stylesheet">`
-    console.log(el.value);
+    el.value = `<link href="https://fonts.googleapis.com/css?family=${selectedFont}" rel="stylesheet">`
     // Set non-editable to avoid focus and move outside of view
     el.setAttribute('readonly', '');
     el.style = {position: 'absolute', left: '-9999px'};
@@ -148,22 +141,9 @@ function selectedFont(fontName) {
     // Copy text to clipboard
     document.execCommand('copy');
     // Remove temporary element
-    document.body.removeChild(el);
-   window.location.reload();
- 
-   });
-
-   
-   
- }
-
- //
- function checkSpace(font)
- {
-   return font.replace(/\s/g, '+');
-  // console.log(withSpace);
-  
- }
+    document.body.removeChild(el); 
+  })
+}
 
 // Current Size
 size_controller.addEventListener('input', () => {
