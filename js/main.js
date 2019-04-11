@@ -127,11 +127,11 @@ function checkSpace(font) {
 function copyButton(fontName) { 
   copyBtn.addEventListener('click',function() {
    
-  let selectedFont = checkSpace(fontName);
+    let copiedFont = checkSpace(fontName);
     // Create new element
     var el = document.createElement('textarea');
     // Set value (string to be copied)
-    el.value = `<link href="https://fonts.googleapis.com/css?family=${selectedFont}" rel="stylesheet">`
+    el.value = `<link href="https://fonts.googleapis.com/css?family=${copiedFont}" rel="stylesheet">`
     // Set non-editable to avoid focus and move outside of view
     el.setAttribute('readonly', '');
     el.style = {position: 'absolute', left: '-9999px'};
@@ -141,7 +141,14 @@ function copyButton(fontName) {
     // Copy text to clipboard
     document.execCommand('copy');
     // Remove temporary element
-    document.body.removeChild(el); 
+    document.body.removeChild(el);
+
+    
+    // Notify the user of the 'Copied' event
+    copyBtn.innerHTML = `Copied`
+    setTimeout(function() {
+      copyBtn.innerHTML = `<i class="far fa-copy"></i>`
+    }, 500)
   })
 }
 
