@@ -3,104 +3,26 @@
   padding: 0;
 }
 
-/****************
- Cross-Styling for input[type="range"]
- Source: https://codepen.io/thebabydino/pen/qVQLzm
- By: Ana Tudor
- ***/
-[type='range'], [type='range']::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  margin: 0;
-  padding: 0;
-  width: 5.5em;
-  height: 1em;
-  background: transparent;
-  font: 1em/1 arial, sans-serif;
-}
-
-[type='range']::-webkit-slider-runnable-track {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  border: none;
-  width: 5.5em;
-  height: 0.25em;
-  background: #ccc;
-}
-
-[type='range']::-moz-range-track {
-  box-sizing: border-box;
-  border: none;
-  width: 5.5em;
-  height: 0.25em;
-  background: #ccc;
-}
-
-[type='range']::-ms-track {
-  box-sizing: border-box;
-  border: none;
-  width: 5.5em;
-  height: 0.25em;
-  background: #ccc;
-}
-
-[type='range']::-webkit-slider-thumb {
-  margin-top: -0.375em;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  border: none;
-  width: 1em;
-  width-height: 1em;
-  border-radius: 50%;
-  background: #363636;
-}
-
-[type='range']::-moz-range-thumb {
-  box-sizing: border-box;
-  border: none;
-  width: 1em;
-  width-height: 1em;
-  border-radius: 50%;
-  background: #363636;
-}
-
-[type='range']::-ms-thumb {
-  margin-top: 0;
-  margin-top-box-sizing: border-box;
-  margin-top-border: none;
-  margin-top-width: 1em;
-  margin-top-width-height: 1em;
-  margin-top-border-radius: 50%;
-  margin-top-background: #363636;
-}
-
-[type='range']::-ms-tooltip {
-  display: none;
-}
-
 /** Fonts List **/
 aside {
   position: fixed;
   width: 20%;
   height: 100vh;
 }
-
 aside h1 {
   font-size: 30px;
-  font-family: 'Quicksand', sans-serif;
+  font-family: "Quicksand", sans-serif;
   text-align: center;
 }
-
 aside .finder {
   margin: 10px 0;
   text-align: center;
 }
-
 aside .finder input {
   width: 80%;
   font-size: 15px;
   padding: 5px 10px;
 }
-
 aside #fonts {
   height: 100%;
   background: #F9F9F9;
@@ -109,7 +31,6 @@ aside #fonts {
   overflow-y: scroll;
   list-style: none;
 }
-
 aside #fonts li {
   padding: 5px;
   cursor: pointer;
@@ -126,39 +47,29 @@ main {
 
 /** Controls / Features **/
 header {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   width: 100%;
   height: 5vh;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  align-items: center;
   font-size: 1.2rem;
   font-family: sans-serif;
   background: #e8e8e8;
   color: #444444;
 }
-
-header .selected-font, header .size {
+header .selected-font,
+header .size {
   width: 50%;
   text-align: left;
 }
-
 header .selected-font {
   text-indent: 10px;
 }
-
 header .size {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
 }
-
-header .size input[type="range"] {
+header .size input[type=range] {
   margin: 0 5px;
 }
-
 header .copy-font button {
   width: 100px;
   height: 5vh;
@@ -183,7 +94,6 @@ header .copy-font button {
   overflow-x: hidden;
   border: 0;
 }
-
 #content:focus {
   outline: 0;
 }
@@ -196,7 +106,6 @@ footer {
   color: #c5c5c5;
   text-align: center;
 }
-
 footer a {
   color: #c5c5c5;
 }
@@ -211,7 +120,6 @@ footer a {
     left: 30%;
   }
 }
-
 @media all and (min-width: 1200px) {
   aside {
     width: 15%;
@@ -220,5 +128,4 @@ footer a {
     width: 85%;
     left: 15%;
   }
-}
-/*# sourceMappingURL=main.css.map */
+}/*# sourceMappingURL=main.css.map */
