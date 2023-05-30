@@ -87,6 +87,7 @@ function buildView() {
 
     // Bind Click Event
     fontElement.addEventListener('click', (e) => {
+      activateFont(fontElement, font.family);
       copyButton(font.family);
       e.stopPropagation();
     });
@@ -211,22 +212,30 @@ function searchFonts() {
   }
 }
 
-// Update Selected Font
-// function activateFont(element, font) {
-//   // Display font name
-//   controls_selectedFont.innerHTML = '<span class="active"></span> ' + font;
-//   // Change the selectedFont & content font family
-//   controls_selectedFont.style.fontFamily = font;
-//   content.style.fontFamily = font;
-//   // Remove "active" class from previously active font
-//   const activeElement = document.querySelector('.font-item.active');
-//   if (activeElement) {
-//     activeElement.classList.remove('active');
-//   }
+/**
+ * Update the selected font and apply it to the content.
+ *
+ * @param {HTMLElement} element - The clicked element representing the font.
+ * @param {string} font - The selected font.
+ * @returns {void}
+ */
+function activateFont(element, font) {
+  // Display the font name
+  controls_selectedFont.innerHTML = '<span class="active"></span> ' + font;
 
-//   // Add "active" class to the clicked element
-//   element.classList.add('active');
-// }
+  // Change the selectedFont & content font family
+  controls_selectedFont.style.fontFamily = font;
+  content.style.fontFamily = font;
+
+  // Remove the "active" class from the previously active font
+  const activeElement = document.querySelector('.font-item.active');
+  if (activeElement) {
+    activeElement.classList.remove('active');
+  }
+
+  // Add the "active" class to the clicked element
+  element.classList.add('active');
+}
 
 /**
  * Copy the font link to the clipboard.
