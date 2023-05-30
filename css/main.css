@@ -1,18 +1,21 @@
 * {
   margin: 0;
   padding: 0;
+  font-family: sans-serif;
 }
 
 /** Fonts List **/
 aside {
   position: fixed;
+  background: #DDE6ED;
   width: 20%;
   height: 100vh;
 }
 aside h1 {
-  font-size: 30px;
-  font-family: "Quicksand", sans-serif;
+  padding: 4px 12px;
+  font-size: 16px;
   text-align: center;
+  color: #27374D;
 }
 aside .finder {
   margin: 10px 0;
@@ -25,15 +28,20 @@ aside .finder input {
 }
 aside #fonts {
   height: 100%;
-  background: #F9F9F9;
   font-size: 1.2rem;
   padding-left: 0;
   overflow-y: scroll;
   list-style: none;
 }
 aside #fonts li {
-  padding: 5px;
+  padding: 12px;
+  color: #27374D;
+  border-bottom: 1px solid #27374D;
   cursor: pointer;
+}
+aside #fonts li.active {
+  background: #27374D;
+  color: #DDE6ED;
 }
 
 /** Wrapper **/
@@ -42,7 +50,7 @@ main {
   width: 80%;
   height: 100vh;
   left: 20%;
-  background: #212121;
+  background: #DDE6ED;
 }
 
 /** Controls / Features **/
@@ -50,11 +58,11 @@ header {
   display: flex;
   width: 100%;
   height: 5vh;
-  align-items: center;
+  align-items: baseline;
   font-size: 1.2rem;
-  font-family: sans-serif;
-  background: #e8e8e8;
-  color: #444444;
+  background: #DDE6ED;
+  color: #27374D;
+  border-bottom: 1px solid #212121;
 }
 header .selected-font,
 header .size {
@@ -62,7 +70,20 @@ header .size {
   text-align: left;
 }
 header .selected-font {
-  text-indent: 10px;
+  height: 30px;
+  font-weight: bold;
+}
+header .selected-font span {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  -webkit-margin-end: 3px;
+          margin-inline-end: 3px;
+  border-radius: 50%;
+  background: #f64747;
+}
+header .selected-font span.active {
+  background: #26c281;
 }
 header .size {
   display: flex;
@@ -73,7 +94,7 @@ header .size input[type=range] {
 header .copy-font button {
   width: 100px;
   height: 5vh;
-  background-color: #4CAF50;
+  background-color: #26c281;
   border: none;
   color: #fff;
   text-align: center;
@@ -86,13 +107,15 @@ header .copy-font button {
 #content {
   width: 100%;
   height: 91vh;
-  font-size: 50px;
+  padding: 16px;
+  font-size: 28px;
   text-align: center;
-  color: #fbfbfb;
-  background: #363636;
+  color: #DDE6ED;
+  background: #27374D;
   resize: none;
   overflow-x: hidden;
   border: 0;
+  box-sizing: border-box;
 }
 #content:focus {
   outline: 0;
@@ -102,12 +125,11 @@ header .copy-font button {
 footer {
   height: 3vh;
   line-height: 3vh;
-  font-family: sans-serif;
-  color: #c5c5c5;
+  color: #27374D;
   text-align: center;
 }
 footer a {
-  color: #c5c5c5;
+  color: #27374D;
 }
 
 /** Responsive Stuff **/
@@ -118,14 +140,5 @@ footer a {
   main {
     width: 70%;
     left: 30%;
-  }
-}
-@media all and (min-width: 1200px) {
-  aside {
-    width: 15%;
-  }
-  main {
-    width: 85%;
-    left: 15%;
   }
 }/*# sourceMappingURL=main.css.map */

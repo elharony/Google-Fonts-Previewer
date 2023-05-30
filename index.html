@@ -33,7 +33,11 @@
 
     <!-- Fonts List -->
     <aside>
-        <h1>Google Fonts Previewer</h1>
+        <h1 title="Google Fonts Previewer">
+            <img src="img/google-fonts-logo.svg" alt="Google Fonts Logo">
+            <br>
+            Previewer
+        </h1>
         <div class="finder">
             <input 
                type="text" 
@@ -50,17 +54,36 @@
 
         <!-- Controls / Features -->
         <header>
-            <div class="selected-font"></div>
+            <div class="selected-font"><span></span> No selected font</div>
             <div class="size">
-                <span id="current-size">50px</span>
-                <input type="range" id="size_controller" min="10" max="100" value="50">
+                <span id="current-size">28px</span>
+                <input type="range" id="size_controller" min="10" max="100" value="28">
                 <i class="fas fa-font fa-lg"></i>
             </div>
             <div class="copy-font"><button id="copy-font"><i class="far fa-copy"></i></button></div>
         </header>
 
         <!-- Content Area -->
-        <textarea id="content">Copy/Paste your content, and decide which font is the best for you!</textarea>   
+        <textarea id="content">
+            This is a test text. Do you like it in your language?
+            这是一篇测试文。 你喜欢用你的语言吗？
+            यह एक परीक्षण पाठ है। क्या आप इसे अपनी भाषा में पसंद करते हैं?
+            Este es un texto de prueba. ¿Te gusta en tu idioma?
+            Ceci est un texte test. L'aimez-vous dans votre langue ?
+            هذا نص تجريبي. هل يعجبك في لغتك؟
+            এটি একটি পরীক্ষামূলক পাঠ্য। আপনি আপনার ভাষায় এটা পছন্দ করেন?
+            Это тестовый текст. Нравится ли вам это на вашем языке?
+            Este é um texto de teste. Você gosta disso no seu idioma?
+            یہ ایک آزمائشی متن ہے۔ کیا آپ کو اپنی زبان میں یہ پسند ہے؟
+            Ini adalah teks tes. Apakah Anda menyukainya dalam bahasa Anda?
+            Dies ist ein Testtext. Gefällt es dir in deiner Sprache?
+            これはテストテキストです。 あなたの言語ではそれが好きですか？
+            Đây là một văn bản thử nghiệm. Bạn có thích nó trong ngôn ngữ của bạn?
+            Hii ni maandishi ya majaribio. Je, unaipenda kwa lugha yako?
+            테스트 글입니다. 당신의 언어로 그것을 좋아합니까?
+            Questo è un testo di prova. Ti piace nella tua lingua?
+            นี่คือข้อความทดสอบ คุณชอบมันในภาษาของคุณหรือไม่?
+        </textarea>   
 
         <!-- Copyrights & Contributions -->
         <footer>Started by <a href="https://www.elharony.com">Elharony</a> & Available on <a href="https://github.com/elharony/Google-Fonts-Previewer">GitHub</a></footer>
