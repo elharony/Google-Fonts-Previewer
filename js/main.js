@@ -85,6 +85,12 @@ function buildView() {
     fontElement.textContent = font.family;
     fontElement.title = font.family;
 
+    // Bind Click Event
+    fontElement.addEventListener('click', (e) => {
+      copyButton(font.family);
+      e.stopPropagation();
+    });
+
     return fontElement;
   }
 
@@ -222,31 +228,36 @@ function searchFonts() {
 //   element.classList.add('active');
 // }
 
-// Copy Font
-// function copyButton(font) {
-//   copyBtn.addEventListener('click', function () {
-//     // Create new element
-//     var el = document.createElement('textarea');
-//     // Set value (string to be copied)
-//     el.value = `<link href="https://fonts.googleapis.com/css?family=${font}" rel="stylesheet">`
-//     // Set non-editable to avoid focus and move outside of view
-//     el.setAttribute('readonly', '');
-//     el.style = { position: 'absolute', left: '-9999px' };
-//     document.body.appendChild(el);
-//     // Select text inside element
-//     el.select();
-//     // Copy text to clipboard
-//     document.execCommand('copy');
-//     // Remove temporary element
-//     document.body.removeChild(el);
+/**
+ * Copy the font link to the clipboard.
+ *
+ * @param {string} font - The font name.
+ * @returns {void}
+ */
+function copyButton(font) {
+  copyBtn.addEventListener('click', function () {
+    // Create new element
+    var el = document.createElement('textarea');
+    // Set value (string to be copied)
+    el.value = `<link href="https://fonts.googleapis.com/css?family=${font}" rel="stylesheet">`
+    // Set non-editable to avoid focus and move outside of view
+    el.setAttribute('readonly', '');
+    el.style = { position: 'absolute', left: '-9999px' };
+    document.body.appendChild(el);
+    // Select text inside element
+    el.select();
+    // Copy text to clipboard
+    document.execCommand('copy');
+    // Remove temporary element
+    document.body.removeChild(el);
 
-//     // Notify the user of the 'Copied' event
-//     copyBtn.innerHTML = `Copied`
-//     setTimeout(function () {
-//       copyBtn.innerHTML = `<i class="far fa-copy"></i>`
-//     }, 500)
-//   })
-// }
+    // Notify the user of the 'Copied' event
+    copyBtn.innerHTML = `Copied`
+    setTimeout(function () {
+      copyBtn.innerHTML = `<i class="far fa-copy"></i>`
+    }, 500)
+  })
+}
 
 // Current Size
 sizeController.addEventListener('input', () => {
