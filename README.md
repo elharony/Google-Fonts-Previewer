@@ -1,10 +1,10 @@
 # Google Fonts Previewer
-A simple tool to preview your content with +900 Google Fonts, built with `HTML/CSS/JavaScript`!
+A simple tool to preview your content with +1500 Google Fonts, built with `HTML/CSS/JavaScript`!
 
 ## How to use it?
 - Go to the [Live Previewer](https://elharony.github.io/Google-Fonts-Previewer/)
 - Write whatever you want in the not-so grey area
-- Click on any font from the left-side menu, it has +900 fonts available
+- Click on any font from the left-side menu, it has +1500 fonts available
 - Increase/Decrease the `font-size` with a slider
 
 ## Why I should use it, instead of `Google Fonts`?
