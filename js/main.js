@@ -84,6 +84,7 @@ function buildView() {
     fontElement.setAttribute('data-font', font.family);
     fontElement.textContent = font.family;
     fontElement.title = font.family;
+    fontElement.setAttribute('tabindex', 0);
 
     // Bind Click Event
     fontElement.addEventListener('click', (e) => {
@@ -109,6 +110,10 @@ function buildView() {
   });
 
   fontContainer.appendChild(fontList);
+
+  fontContainer.addEventListener('keyup', (e) => {
+    if (e.keyCode == 9 && isFontListItem(e.target)) document.activeElement.click();
+  });
 
   observeVisibleFonts();
 }
@@ -172,28 +177,14 @@ function saveFonts(fontsList) {
   localStorage.setItem('fonts', JSON.stringify(fontsList));
 }
 
-
-
-// bind events
-// fontListElement.addEventListener('click', (e) => {
-//   if (isFontListItem(e.srcElement)) {
-//     let li = e.srcElement;
-//     let fontFamily = li.dataset.value;
-//     content.style.fontFamily = fontFamily;
-//     selectedFont(fontFamily);
-//     copyButton(fontFamily);
-//     e.stopPropagation();
-//   }
-// });
-
-// tab navigation
-// fontListElement.addEventListener('keyup', (e) => {
-//   if (e.keyCode == 9 && isFontListItem(e.target)) document.activeElement.click();
-// });
-
-// utils
+/**
+ * Check if the clicked element is a font list item.
+ *
+ * @param {HTMLElement} clickedElm - The clicked element.
+ * @returns {boolean} Returns true if the clicked element is a font list item, otherwise false.
+ */
 function isFontListItem(clickedElm) {
-  return clickedElm.classList.contains('font');
+  return clickedElm.classList.contains('font-item');
 }
 
 // Search through fonts
