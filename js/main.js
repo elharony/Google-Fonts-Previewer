@@ -1,9 +1,10 @@
 const content = document.querySelector('#content');
-const fontListElement = document.querySelector('#fonts');
+// const fontListElement = document.querySelector('#fonts');
+const fontContainer = document.getElementById('fonts');
 const copyBtn = document.querySelector('#copy-font');
 const controls_selectedFont = document.querySelector('.selected-font');
-const size_controller = document.querySelector('#size_controller');
-const placeholder_currentSize = document.querySelector('#current-size');
+const sizeController = document.querySelector('#size_controller');
+const sizePlaceholder = document.querySelector('#size_placeholder');
 let fontListFragment = document.createDocumentFragment();
 
 let fonts = [];
@@ -14,7 +15,6 @@ function onInit() {
 
 
 function buildView() {
-  const fontContainer = document.getElementById('fonts');
   const fontList = document.createElement('ul');
   fontList.classList.add('font-list');
 
@@ -32,10 +32,7 @@ function buildView() {
         const fontName = fontElement.getAttribute('data-font');
         const font = fonts.find((f) => f.family === fontName);
 
-        console.log(fontName)
-
         if (font) {
-          console.log('Load.')
           loadFont(font);
           fontElement.classList.add('font-loaded');
           fontObserver.unobserve(fontElement);
@@ -86,6 +83,7 @@ function buildView() {
     fontElement.style.fontFamily = font.family;
     fontElement.setAttribute('data-font', font.family);
     fontElement.textContent = font.family;
+    fontElement.title = font.family;
 
     return fontElement;
   }
@@ -168,52 +166,6 @@ function saveFonts(fontsList) {
 }
 
 
-/* -------------------------------------
-| Retreive fonts from Google Fonts API | 
-------------------------------------- */
-// fetch('https://www.googleapis.com/webfonts/v1/webfonts?sort=popularity&key=AIzaSyCVmxrGZ9C6A_dADKlJIc1I88fJoHsYjnQ')
-//   .then((r) => r.json())
-//   .then((fontsObject) => {
-//     console.log(fontsObject.items[0]);
-// create visual list for fonts
-// for (font of fontsObject.items) {
-//   let fontFamily = font.family;
-//   let li = document.createElement('li');
-//   li.classList.add('font');
-//   li.setAttribute('data-value', fontFamily);
-//   li.setAttribute('tabindex', 0);
-//   li.innerText = fontFamily;
-//   li.style.fontFamily = fontFamily;
-
-//   fontListFragment.appendChild(li);
-// }
-
-// fontListElement.appendChild(fontListFragment);
-
-/* -------------------------------
-| load css resources dynamically | 
-------------------------------- */
-// 1. create string which imports all css files
-// for all font families chunked by 12
-
-// chunk fonts
-// let chunkedFonts = chunk(fontsObject.items, 12);
-
-// construct @import statements as string
-// let importStatements = chunkedFonts
-//   .map((chunkedFontsArr) => {
-//     return `@import "https://fonts.googleapis.com/css?family=${chunkedFontsArr
-//       .map((f) => f.family)
-//       .join('|')}"`;
-//   })
-//   .join(';');
-
-// 2. create html style element and fill it with @import statements
-// let fontsStyle = document.createElement('style');
-// fontsStyle.type = 'text/css';
-// fontsStyle.innerHTML = importStatements;
-// document.getElementsByTagName('head')[0].appendChild(fontsStyle);
-// });
 
 // bind events
 // fontListElement.addEventListener('click', (e) => {
@@ -237,26 +189,6 @@ function isFontListItem(clickedElm) {
   return clickedElm.classList.contains('font');
 }
 
-function chunk(ar, size) {
-  let buffer = [];
-  return ar.reduce((acc, item, i) => {
-    let isLast = i === ar.length - 1;
-
-    if (buffer.length === size) {
-      let theChunk = [...buffer];
-      buffer = [item];
-      return [...acc, theChunk];
-    } else {
-      buffer.push(item);
-      if (isLast) {
-        return [...acc, buffer];
-      } else {
-        return acc;
-      }
-    }
-  }, []);
-}
-
 // Search through fonts
 function searchFonts() {
   var input, filter, font, i, txtValue;
@@ -274,49 +206,53 @@ function searchFonts() {
 }
 
 // Update Selected Font
-function selectedFont(fontName) {
-  controls_selectedFont.innerText = fontName;
-}
+// function activateFont(element, font) {
+//   // Display font name
+//   controls_selectedFont.innerHTML = '<span class="active"></span> ' + font;
+//   // Change the selectedFont & content font family
+//   controls_selectedFont.style.fontFamily = font;
+//   content.style.fontFamily = font;
+//   // Remove "active" class from previously active font
+//   const activeElement = document.querySelector('.font-item.active');
+//   if (activeElement) {
+//     activeElement.classList.remove('active');
+//   }
 
-// Remove space form string and add "+"
-function checkSpace(font) {
-  return font.replace(/\s/g, '+');
-}
+//   // Add "active" class to the clicked element
+//   element.classList.add('active');
+// }
 
 // Copy Font
-function copyButton(fontName) {
-  copyBtn.addEventListener('click', function () {
+// function copyButton(font) {
+//   copyBtn.addEventListener('click', function () {
+//     // Create new element
+//     var el = document.createElement('textarea');
+//     // Set value (string to be copied)
+//     el.value = `<link href="https://fonts.googleapis.com/css?family=${font}" rel="stylesheet">`
+//     // Set non-editable to avoid focus and move outside of view
+//     el.setAttribute('readonly', '');
+//     el.style = { position: 'absolute', left: '-9999px' };
+//     document.body.appendChild(el);
+//     // Select text inside element
+//     el.select();
+//     // Copy text to clipboard
+//     document.execCommand('copy');
+//     // Remove temporary element
+//     document.body.removeChild(el);
 
-    let copiedFont = checkSpace(fontName);
-    // Create new element
-    var el = document.createElement('textarea');
-    // Set value (string to be copied)
-    el.value = `<link href="https://fonts.googleapis.com/css?family=${copiedFont}" rel="stylesheet">`
-    // Set non-editable to avoid focus and move outside of view
-    el.setAttribute('readonly', '');
-    el.style = { position: 'absolute', left: '-9999px' };
-    document.body.appendChild(el);
-    // Select text inside element
-    el.select();
-    // Copy text to clipboard
-    document.execCommand('copy');
-    // Remove temporary element
-    document.body.removeChild(el);
-
-
-    // Notify the user of the 'Copied' event
-    copyBtn.innerHTML = `Copied`
-    setTimeout(function () {
-      copyBtn.innerHTML = `<i class="far fa-copy"></i>`
-    }, 500)
-  })
-}
+//     // Notify the user of the 'Copied' event
+//     copyBtn.innerHTML = `Copied`
+//     setTimeout(function () {
+//       copyBtn.innerHTML = `<i class="far fa-copy"></i>`
+//     }, 500)
+//   })
+// }
 
 // Current Size
-// size_controller.addEventListener('input', () => {
-//   content.style.fontSize = size_controller.value + 'px';
-//   placeholder_currentSize.innerText = size_controller.value + 'px';
-// });
+sizeController.addEventListener('input', () => {
+  content.style.fontSize = size_controller.value + 'px';
+  sizePlaceholder.innerText = sizeController.value + 'px';
+});
 
 // Init
 // function init() {
