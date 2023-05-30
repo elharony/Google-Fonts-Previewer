@@ -71,7 +71,10 @@ function buildView() {
     const { files } = font;
 
     if (files && files[variant]) {
-      sources.push(`url('${files[variant]}') format('truetype')`);
+      // If Google Fonts returned http, convert to https
+      let httpsUrl = files[variant].includes('http://') ? files[variant].replace('http://', 'https://') : files[variant];
+      // Push to sources
+      sources.push(`url('${httpsUrl}') format('truetype')`);
     }
 
     return sources.join(', ');
